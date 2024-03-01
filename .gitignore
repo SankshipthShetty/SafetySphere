@@ -64,3 +64,11 @@ yarn-error.log
 
 # testing
 /coverage
+
+#fb service
+
+.env
+
+android/app/google-services.json
+
+src/screens/Login_Screen.tsx
