@@ -6,6 +6,7 @@ export default class Home_Screen extends Component {
     return (
       <View>
         <Text>Home_Screen</Text>
+        <Text>BRANCH TEST</Text>
       </View>
     )
   }
