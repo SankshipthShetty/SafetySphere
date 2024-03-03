@@ -1,13 +1,10 @@
-import { Text, View } from 'react-native'
-import React, { Component } from 'react'
+import { View, Text } from 'react-native'
+import React from 'react'
 
-export default class Home_Screen extends Component {
-  render() {
-    return (
-      <View>
-        <Text>Home_Screen</Text>
-        <Text>BRANCH TEST</Text>
-      </View>
-    )
-  }
+export default function Home_Screen() {
+  return (
+    <View>
+      <Text>Home_Screen</Text>
+    </View>
+  )
 }

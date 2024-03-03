@@ -24,7 +24,7 @@ const LoginScreen = ({navigation}: {navigation: any}) => {
   
     console.log(idToken);
     Alert.alert("success login");
-    navigation.navigate('Home');
+    navigation.navigate('DisasterSafety');
     // Create a Google credential with the token
     const googleCredential = auth.GoogleAuthProvider.credential(idToken);
     
@@ -53,7 +53,7 @@ const LoginScreen = ({navigation}: {navigation: any}) => {
   const handleLogin=()=>{ 
     auth().signInWithEmailAndPassword(email,password).then(userCredentials=>{
       const user=userCredentials.user
-      navigation.navigate('Home')
+      navigation.navigate('LiveLocation')
       console.log(user.email);})
       .catch(error => {
         let errorMessage = 'An error occurred';

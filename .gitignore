@@ -72,3 +72,7 @@ yarn-error.log
 android/app/google-services.json
 
 src/screens/Login_Screen.tsx
+
+mapapi.ts
+
+app.json

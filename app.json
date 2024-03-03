@@ -1,7 +1,0 @@
-{
-  "name": "SafetySphere",
-  "displayName": "SafetySphere",
-  "plugins": [
-    "expo-font"
-  ]
-}
