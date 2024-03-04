@@ -76,3 +76,5 @@ src/screens/Login_Screen.tsx
 mapapi.ts
 
 app.json
+
+android/app/src/main/AndroidManifest.xml
