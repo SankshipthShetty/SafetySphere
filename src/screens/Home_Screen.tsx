@@ -1,9 +1,10 @@
 import React from 'react';
 import { View, Text, StyleSheet, TouchableOpacity } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
+import {createStackNavigator} from '@react-navigation/stack';
 
-const HomeScreen = () => {
-  const navigation = useNavigation();
+const HomeScreen = ({navigation}: {navigation:any}) => {
+  //  const navigation = useNavigation();
 
   return (
     <View style={styles.container}>
@@ -18,7 +19,9 @@ const HomeScreen = () => {
 
       <Text style={styles.heading}>One click away for all your Emergency Services.</Text>
 
-        <TouchableOpacity onPress={() => navigation.navigate('Live Location')}>
+      <TouchableOpacity onPress={() => {
+                navigation.navigate("Live Location" as never)
+            }}>
           <View style={[styles.cardContainerLarge, { backgroundColor: 'indianred' }]}>
             <Text style={styles.cardTitle}>Live Location</Text> 
           </View>
@@ -41,9 +44,6 @@ const HomeScreen = () => {
             <Text style={styles.cardTitle}>Safety Measures</Text>
           </View>
         </TouchableOpacity>
-
-        
-
     </View>
   );
 };
@@ -53,7 +53,7 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: 'mintcream', // Light blue background
     paddingHorizontal: 20,
-    paddingTop: 40,
+    paddingTop: 25,
   },
   greetingContainer: {
     marginBottom: 20,

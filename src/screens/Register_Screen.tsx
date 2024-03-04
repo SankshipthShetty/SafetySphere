@@ -22,8 +22,6 @@ const RegisterScreen = ({navigation}:{navigation:any}) => {
   const[gender,setG]=useState('');
 
   const handleRegister = () => {
-   
-
     addDoc(collection(firestore, "Users"), {
       Email: email,
       PhoneNo: phoneNumber,
@@ -34,7 +32,17 @@ const RegisterScreen = ({navigation}:{navigation:any}) => {
       Gender: gender,
     }).then(() => {
       console.log('data submitted')
-      navigation.navigate('Home')
+
+    //   const userData = {
+    //     email: email,
+    //     phoneNumber: phoneNumber,
+    //     age: age,
+    //     bloodGroup: bloodGroup,
+    //     emergencyContact: emergencyContact,
+    //     gender: gender,
+    // };
+
+    navigation.navigate('Home', { userData: { email, phoneNumber, age, bloodGroup, emergencyContact, gender } })
     }).catch((error) => {
       console.log(error);
     });
