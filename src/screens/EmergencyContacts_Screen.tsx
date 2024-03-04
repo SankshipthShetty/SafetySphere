@@ -1,7 +1,7 @@
 import { View, Text } from 'react-native'
 import React from 'react'
 
-export default function EmergencyContacts_Screen() {
+export default function EmergencyContactsScreen() {
   return (
     <View>
       <Text>EmergencyContacts_Screen</Text>

@@ -58,7 +58,7 @@ function InputAutoComplete({
   );
       }
 
-const LiveLoc= ()=>{
+const LiveLocationScreen= ()=>{
   const [origin, setOrigin] = useState<LatLng | null>()
   const [destination, setDestination] = useState<LatLng| null>()
   const [showDirections, setShowDirections] = useState(false)  
@@ -372,4 +372,4 @@ const styles = StyleSheet.create({
   
 });
 
-export default LiveLoc;
+export default LiveLocationScreen;

@@ -24,7 +24,7 @@ const LoginScreen = ({navigation}: {navigation: any}) => {
   
     console.log(idToken);
     Alert.alert("success login");
-    navigation.navigate('DisasterSafety');
+    navigation.navigate('Home');
     // Create a Google credential with the token
     const googleCredential = auth.GoogleAuthProvider.credential(idToken);
     

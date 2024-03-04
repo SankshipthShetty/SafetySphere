@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect ,} from 'react';
 import { View, StyleSheet, Image, Text } from 'react-native';
 import MapView, { Marker } from 'react-native-maps';
 import axios from 'axios';
@@ -106,39 +106,55 @@ const earthquakes = response.data.data;
     </View>
   );
 }
-
 const styles = StyleSheet.create({
-    container: {
-        flex: 1,
-        alignItems: 'center',
-        justifyContent:'flex-start',
+  container: {
+    flex: 1,
+    alignItems: 'center',
+    justifyContent: 'flex-start',
+    backgroundColor: '#f0f0f0', // Background color
+  },
+  alertContainer: {
+    backgroundColor: '#007bff',
+    borderRadius: 10,
+    width: '95%',
+    height: '15%',
+    marginVertical: 10,
+    paddingVertical: 15,
+    paddingHorizontal: 20,
+    alignItems: 'center',
+    justifyContent: 'center',
+    shadowColor: '#000',
+    shadowOffset: {
+      width: 0,
+      height: 2,
     },
-    alertContainer: {
-        backgroundColor: '#007bff',
-        height:'20%',
-        borderRadius: 10,
-        width: '95%',
-        marginVertical: 10, // Adjust as needed
-        padding: 8,
-        alignItems: 'center',
-        justifyContent: 'center',
+    shadowOpacity: 0.25,
+    shadowRadius: 3.84,
+    elevation: 5,
+  },
+  alertText: {
+    fontSize: 18,
+    fontWeight: 'bold',
+    color: 'white',
+    textAlign: 'center',
+  },
+  mapcontainer: {
+    width: '95%',
+    height: '80%',
+    borderRadius: 10,
+    overflow: 'hidden',
+    marginVertical: 5,
+    shadowColor: '#000',
+    shadowOffset: {
+      width: 0,
+      height: 2,
     },
-    alertText: {
-        fontSize: 18,
-        fontWeight: 'bold',
-        color: 'white',
-        textAlign: 'center',
-        
-    },
-    mapcontainer: {
-        width: '95%',
-        height: '74%', // Adjust as needed
-        borderRadius: 10,
-        overflow: 'hidden',
-        marginVertical: 5, // Adjust as needed
-    },
-    map: {
-        width: '100%',
-        height: '100%',
-    }
+    shadowOpacity: 0.25,
+    shadowRadius: 3.84,
+    elevation: 5,
+  },
+  map: {
+    width: '100%',
+    height: '100%',
+  },
 });
