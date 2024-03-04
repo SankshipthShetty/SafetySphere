@@ -12,7 +12,7 @@ const SafetyMeasures = () => {
   const firstAidRef = useRef(null);
 
   // Function to scroll to a specific section
-  const scrollToSection = (ref) => {
+  const scrollToSection = (ref:any) => {
     setImmediate(() => ref.current.scrollIntoView({ inline: "center", }));
   };
   

@@ -53,7 +53,7 @@ const LoginScreen = ({navigation}: {navigation: any}) => {
   const handleLogin=()=>{ 
     auth().signInWithEmailAndPassword(email,password).then(userCredentials=>{
       const user=userCredentials.user
-      navigation.navigate('Home')
+      navigation.navigate('LiveLocation')
       console.log(user.email);})
       .catch(error => {
         let errorMessage = 'An error occurred';

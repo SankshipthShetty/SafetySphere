@@ -12,7 +12,7 @@ module.exports = {
         blacklist: null, // DEPRECATED
         whitelist: null, // DEPRECATED
         safe: false,
-        allowUndefined: false,
+        allowUndefined: true,
         verbose: false,
       },
     ],
