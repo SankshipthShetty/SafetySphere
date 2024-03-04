@@ -1,10 +1,10 @@
 import React from 'react';
 import { View, Text, StyleSheet } from 'react-native';
 
-const LiveLocationScreen = () => {
+const WeatherScreen = () => {
   return (
     <View style={styles.container}>
-      <Text>Live Location Screen</Text>
+      <Text>Up-To-Date Weather only for youuuu :)</Text>
       {/* Add your content for the Live Location screen here */}
     </View>
   );
@@ -18,4 +18,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default LiveLocationScreen;
+export default WeatherScreen;
