@@ -33,14 +33,6 @@ const RegisterScreen = ({navigation}:{navigation:any}) => {
     }).then(() => {
       console.log('data submitted')
 
-    //   const userData = {
-    //     email: email,
-    //     phoneNumber: phoneNumber,
-    //     age: age,
-    //     bloodGroup: bloodGroup,
-    //     emergencyContact: emergencyContact,
-    //     gender: gender,
-    // };
 
     navigation.navigate('Home', { userData: { email, phoneNumber, age, bloodGroup, emergencyContact, gender } })
     }).catch((error) => {
@@ -51,7 +43,7 @@ const RegisterScreen = ({navigation}:{navigation:any}) => {
       const user=userCredentials.user;
     console.log(user.email);
     })
-       .catch(error=>Alert.alert(error.message)) 
+       .catch(error=>console.log(error.message)) 
    
   }
 

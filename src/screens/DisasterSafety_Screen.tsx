@@ -2,7 +2,7 @@ import React, { useState, useEffect ,} from 'react';
 import { View, StyleSheet, Image, Text } from 'react-native';
 import MapView, { Marker } from 'react-native-maps';
 import axios from 'axios';
-
+import { Earthquake_api } from '../../mapapi';
 export default function DisasterSafetyScreen() {
   const [disasters, setDisasters] = useState([]);
   const [isSafe, setIsSafe] = useState(true); // Default to true
@@ -45,7 +45,7 @@ export default function DisasterSafetyScreen() {
             intensity: '1'
           },
           headers: {
-            'X-RapidAPI-Key': '3428468d77mshcb4a58176bb7223p1cc61fjsn3ab39738813b',
+            'X-RapidAPI-Key': Earthquake_api,
             'X-RapidAPI-Host': 'everyearthquake.p.rapidapi.com'
           }
         });

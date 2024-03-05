@@ -3,11 +3,13 @@ import { KeyboardAvoidingView, StyleSheet, Text, TextInput, TouchableOpacity, Vi
 import auth from "@react-native-firebase/auth";
 import { Alert } from 'react-native';
 import {GoogleSignin, GoogleSigninButton} from "@react-native-google-signin/google-signin";
+import { collection, query, where, getDocs } from 'firebase/firestore';
+import {firestore} from '../../index';
 
 const LoginScreen = ({navigation}: {navigation: any}) => {
 
-  const [email, setEmail] = useState<string>('');
-  const [password, setPassword] = useState<string>('');
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
 
   useEffect(()=>  {
     GoogleSignin.configure({
@@ -20,40 +22,43 @@ const LoginScreen = ({navigation}: {navigation: any}) => {
     try{
       await GoogleSignin.hasPlayServices({ showPlayServicesUpdateDialog: true });
     // Get the users ID token
-    const { idToken } = await GoogleSignin.signIn();
-  
+    const { idToken,user } = await GoogleSignin.signIn();
+    const userInfo = await GoogleSignin.signIn();
+    console.log(userInfo);
+    // Access the user's profile photo URL from userInfo.user.photo
+    const profilePhotoUrl = userInfo.user.photo ;
+    console.log(profilePhotoUrl);
+      console.log(user.email)
     console.log(idToken);
-    Alert.alert("success login");
-    navigation.navigate('Home');
-    // Create a Google credential with the token
+
+    const usersRef = collection(firestore, 'Users');
+    const q = query(usersRef, where('Email', '==', user.email));
+    const querySnapshot = await getDocs(q);
+    if (querySnapshot.empty) {
+      Alert.alert('User does not exist. Please register first');
+    } else {
+      console.log('User exists in Firestore');
+   
+      navigation.navigate('Profile', { email: user.email, profilePhotoUrl: profilePhotoUrl });
+    }
     const googleCredential = auth.GoogleAuthProvider.credential(idToken);
-    
-    
-    // Sign-in the user with the credential
+
     return auth().signInWithCredential(googleCredential);
     } catch (error) {
       console.log(error);
     }
   }
-  
-  
 
 
-//   useEffect(()=>  {
-//     const unsubscribe=auth().onAuthStateChanged(user=>{
-//       if(user){
-//       navigation.navigate('Home')
-//     }
-//   })
-//   return unsubscribe;
 
-// },[])
+
 
 
   const handleLogin=()=>{ 
     auth().signInWithEmailAndPassword(email,password).then(userCredentials=>{
       const user=userCredentials.user
-      navigation.navigate('LiveLocation')
+      // navigation.navigate('Home')
+      navigation.navigate('Profile', { email: user.email }, { profilePhotoUrl: user.photoURL });
       console.log(user.email);})
       .catch(error => {
         let errorMessage = 'An error occurred';
@@ -69,7 +74,7 @@ const LoginScreen = ({navigation}: {navigation: any}) => {
   const handleRegister = () => {  
     navigation.navigate('Register');
   };
- 
+
   return (
     <KeyboardAvoidingView
       style={styles.container}
@@ -101,8 +106,8 @@ const LoginScreen = ({navigation}: {navigation: any}) => {
       >
         <Text style={styles.buttonText}>Login</Text>
       </TouchableOpacity>
-    
-      
+
+
       <TouchableOpacity
         onPress={onGoogleButtonPress}
         style={[styles.button, styles.googleButton]}
@@ -189,4 +194,3 @@ const styles = StyleSheet.create({
   },
 });
 export default LoginScreen;
-

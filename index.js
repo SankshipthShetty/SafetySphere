@@ -19,5 +19,6 @@ const  firebaseConfig = {
     mobilesdk_app_id: FIRBASE_MOBILEID
 }
 
+
 const app = initializeApp(firebaseConfig);
 export const firestore = getFirestore(app);
