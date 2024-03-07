@@ -1,21 +1,43 @@
 import React from 'react';
-import { View, Text, StyleSheet, TouchableOpacity } from 'react-native';
-import { useNavigation } from '@react-navigation/native';
+import { View, Text, StyleSheet, TouchableOpacity, Image } from 'react-native';
+import { useNavigation, useRoute } from '@react-navigation/native';
 import {createStackNavigator} from '@react-navigation/stack';
 
 const HomeScreen = ({navigation}: {navigation:any}) => {
   //  const navigation = useNavigation();
+  const route = useRoute(); 
+  const { email, profilePhotoUrl } = route.params as any;
+
+  const goToProfile = () => {
+    navigation.navigate('Profile', { email: email, profilePhotoUrl: profilePhotoUrl });
+  };
+
+const EmergencyAssistance=()=>{
+  navigation.navigate('Helpline');
+}
 
   return (
+    
     <View style={styles.container}>
+      <TouchableOpacity onPress={goToProfile} style={styles.profileButton}>
+      <Image source={require('../assets/icons/noimage.png')} style={styles.profileImage} />
+        </TouchableOpacity>
       <View style={styles.greetingContainer}>
+      
         <Text style={styles.greeting}>Hey There!</Text>
+      
         <Text style={styles.message}>We're here for you.</Text>
       </View>
 
-      <View style={styles.cardContainer}>
-        <Text style={styles.cardTitle}>Emergency Assistance</Text>     
+     
+      <View style={styles.cardContainer} >
+      <TouchableOpacity onPress={() => {
+                navigation.navigate("Helpline" as never)
+            }}>
+        <Text style={styles.cardTitle}>Emergency Assistance</Text>  
+        </TouchableOpacity>   
       </View>
+      
 
       <Text style={styles.heading}>One click away for all your Emergency Services.</Text>
 
@@ -27,7 +49,7 @@ const HomeScreen = ({navigation}: {navigation:any}) => {
           </View>
         </TouchableOpacity>
 
-        <TouchableOpacity onPress={() => navigation.navigate('Safe Places')}>
+        <TouchableOpacity onPress={() => navigation.navigate('SafePlacesScreen')}>
           <View style={[styles.cardContainerLarge, { backgroundColor: 'rosybrown' }]}>
             <Text style={styles.cardTitle}>Safe Places</Text>
           </View>
@@ -39,11 +61,11 @@ const HomeScreen = ({navigation}: {navigation:any}) => {
           </View>
         </TouchableOpacity>
 
-        <TouchableOpacity onPress={() => navigation.navigate('Safety Measures')}>
+        {/* <TouchableOpacity onPress={() => navigation.navigate('Safety Measures')}>
           <View style={[styles.cardContainerLarge, { backgroundColor: 'teal' }]}>
             <Text style={styles.cardTitle}>Safety Measures</Text>
           </View>
-        </TouchableOpacity>
+        </TouchableOpacity> */}
     </View>
   );
 };
@@ -56,7 +78,9 @@ const styles = StyleSheet.create({
     paddingTop: 25,
   },
   greetingContainer: {
-    marginBottom: 20,
+    marginBottom: 12, 
+    marginRight:60,
+    top:-55,// Light blue background
   },
   greeting: {
     fontSize: 30,
@@ -71,9 +95,12 @@ const styles = StyleSheet.create({
     color: '#333',
   },
   cardContainer: {
-    backgroundColor: 'maroon', // Lighter blue container
+    // Lighter blue container
+    
+     backgroundColor: 'maroon',
+     height:'13%',
     borderRadius: 30,
-    padding: 20,
+    padding: 28,
     elevation: 3,
     shadowColor: '#000',
     shadowOffset: {
@@ -82,7 +109,8 @@ const styles = StyleSheet.create({
     },
     shadowOpacity: 0.25,
     shadowRadius: 3.84,
-    marginBottom: 20,
+    marginBottom:0,
+    top: -30,
   },
   cardContainerLarge: {
     backgroundColor: '#72A8BC', // Blueish color
@@ -96,7 +124,7 @@ const styles = StyleSheet.create({
     },
     shadowOpacity: 0.25,
     shadowRadius: 3.84,
-    marginBottom: 20,
+    marginBottom: 30,
     height: 90,
     justifyContent: 'center',
   },
@@ -108,11 +136,28 @@ const styles = StyleSheet.create({
     textAlign: 'center',
   },  
   heading: {
-    marginTop: 10,
-    marginBottom: 20,
-    fontSize: 15,
+    marginTop: 5,
+    marginBottom: 30,
+    fontSize: 17,
+    fontWeight:'bold',
     color: '#333'
-  }
+  },
+  profileButton: {
+    width: 50,
+    height: 50,
+    right: '-85%',
+    borderRadius: 30,
+    backgroundColor: '#2E6E9E',
+    justifyContent: 'center',
+    alignItems: 'center',
+    position: 'relative',
+    top: 7,
+  },
+  profileImage: {
+    width: 50,
+    height: 50,
+    resizeMode: 'cover',
+  },
 });
 
 export default HomeScreen;

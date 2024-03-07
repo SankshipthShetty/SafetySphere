@@ -39,7 +39,7 @@ const LoginScreen = ({navigation}: {navigation: any}) => {
     } else {
       console.log('User exists in Firestore');
    
-      navigation.navigate('Profile', { email: user.email, profilePhotoUrl: profilePhotoUrl });
+      navigation.navigate('Home', { email: user.email, profilePhotoUrl: profilePhotoUrl });
     }
     const googleCredential = auth.GoogleAuthProvider.credential(idToken);
 
@@ -58,7 +58,7 @@ const LoginScreen = ({navigation}: {navigation: any}) => {
     auth().signInWithEmailAndPassword(email,password).then(userCredentials=>{
       const user=userCredentials.user
       // navigation.navigate('Home')
-      navigation.navigate('Profile', { email: user.email }, { profilePhotoUrl: user.photoURL });
+      navigation.navigate('Home', { email: user.email }, { profilePhotoUrl: user.photoURL });
       console.log(user.email);})
       .catch(error => {
         let errorMessage = 'An error occurred';
