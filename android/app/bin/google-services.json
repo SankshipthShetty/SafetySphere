@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "149462374658",
+    "project_id": "safetysphere-8faeb",
+    "storage_bucket": "safetysphere-8faeb.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:149462374658:android:1ce1df718f23b7f9048a1b",
+        "android_client_info": {
+          "package_name": "com.safetysphere"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "149462374658-46pc22evpu2qes3d07vdm3ocp8hhpfec.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.safetysphere",
+            "certificate_hash": "5e8f16062ea3cd2c4a0d547876baa6f38cabf625"
+          }
+        },
+        {
+          "client_id": "149462374658-m0880804r9rdbgujjf84ropalre99d3v.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBic2-y5FRIwfp2_JRit0KZLt_3uOmAr7A"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "149462374658-m0880804r9rdbgujjf84ropalre99d3v.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

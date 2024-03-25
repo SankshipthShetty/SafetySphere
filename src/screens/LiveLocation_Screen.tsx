@@ -143,7 +143,7 @@
       try {
         const location = await GetLocation.getCurrentPosition({
           enableHighAccuracy: false, //reduced the accuracy for syncing fast
-          timeout:  1000,
+          timeout:  5000,
           
         });
         
@@ -156,7 +156,7 @@
           setWarningVisible(currentDistance > routeDistance);
         }
       } catch (error) {
-        console.warn('Error getting current location:', error);
+        // console.warn('Error getting current location:', error);
       }
     };
 

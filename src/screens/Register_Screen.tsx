@@ -153,18 +153,18 @@
       paddingHorizontal: 20,
       paddingVertical: 15,
       borderRadius: 10,
-      marginBottom: 20,
+      marginBottom: 10,
       fontSize: 16,
       color: 'black',
       
     },
     button: {
       backgroundColor: '#007bff', // Primary button color
-      paddingVertical: 15,
+      paddingVertical: 20,
       borderRadius: 10,
       width: '100%',
       alignItems: 'center',
-      marginBottom: 10,
+      marginBottom: 50,
     },
     buttonText: {
       color: 'white', // Button text color
