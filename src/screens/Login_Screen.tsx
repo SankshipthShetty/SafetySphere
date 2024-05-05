@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { KeyboardAvoidingView, StyleSheet, Text, TextInput, TouchableOpacity, View ,Button} from 'react-native';
+import { KeyboardAvoidingView, StyleSheet, Text, TextInput, TouchableOpacity, View ,Button,Image} from 'react-native';
 import auth from "@react-native-firebase/auth";
 import { Alert } from 'react-native';
 import {GoogleSignin, GoogleSigninButton} from "@react-native-google-signin/google-signin";
@@ -80,6 +80,13 @@ const LoginScreen = ({navigation}: {navigation: any}) => {
       style={styles.container}
       behavior="padding"
     >
+     <Image
+      source={require('../assets/icons/login.png')}
+      style={styles.logo1}
+    
+    
+    />
+
       <Text style={styles.logo}>SafetySphere</Text>
 
       <View style={styles.inputContainer}>
@@ -192,5 +199,11 @@ const styles = StyleSheet.create({
     color: '#007bff',
     fontWeight: 'bold',
   },
+  logo1:{
+    marginTop:-110,
+    width: 185,
+    height: 170,
+    
+  }
 });
 export default LoginScreen;
