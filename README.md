@@ -1,3 +1,12 @@
+# SafetySphere
+
+![project-3](https://github.com/user-attachments/assets/113609aa-1c8e-4805-af42-535ddfaa0c09)
+
+<h3>A React Native app with one-click emergency calls, live location tracking, and route deviation alerts. Integrated Google Maps,
+Places, Weather, and NASA APIs for real-time updates and disaster information. Added safety features for location sharing
+and finding nearby police stations and hospitals.</h3>
+
+
 This is a new [**React Native**](https://reactnative.dev) project, bootstrapped using [`@react-native-community/cli`](https://github.com/react-native-community/cli).
 
 # Getting Started
